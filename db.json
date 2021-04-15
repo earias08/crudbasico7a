@@ -1,0 +1,9 @@
+{
+    "cafeteria":[
+        {
+            "nombreProducto":"café",
+            "precioProducto": 50,
+            "categoria":"bebidaCaliente"
+        }
+    ]
+}
