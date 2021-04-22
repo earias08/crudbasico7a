@@ -1,16 +1,34 @@
 {
-    "cafeteria":[
-        {
-            "nombreProducto":"café",
-            "precioProducto": 50,
-            "categoria":"bebidaCaliente",
-            "id":1
-        },
-        {
-            "nombreProducto":"medialuna x unidad",
-            "precioProducto": 40,
-            "categoria":"dulce",
-            "id":1
-        }
-    ]
+  "cafeteria": [
+    {
+      "nombreProducto": "café",
+      "precioProducto": 50,
+      "categoria": "bebidaCaliente",
+      "id": 1
+    },
+    {
+      "nombreProducto": "medialuna x unidad",
+      "precioProducto": 40,
+      "categoria": "dulce",
+      "id": 1
+    },
+    {
+      "nombreProducto": "té",
+      "precioProducto": 45,
+      "categoria": "bebidaCaliente",
+      "id": 2
+    },
+    {
+      "nombreProducto": "pan x kg",
+      "precioProducto": 100,
+      "categoria": "salado",
+      "id": 3
+    },
+    {
+      "nombreProducto": "alfajor de maicena",
+      "precioProducto": 65,
+      "categoria": "dulce",
+      "id": 4
+    }
+  ]
 }

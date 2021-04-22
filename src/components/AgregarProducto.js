@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
+import Swal from 'sweetalert2';
 
 const AgregarProducto = () => {
+  const URL = process.env.REACT_APP_API_URL;
   const [nombreProducto, setNombreProducto] = useState("");
   const [precioProducto, setPrecioProducto] = useState(0);
   const [categoria, setCategoria] = useState("");
@@ -13,7 +15,6 @@ const AgregarProducto = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // validacion
     if (
       nombreProducto.trim() === "" ||
@@ -38,14 +39,29 @@ const AgregarProducto = () => {
         precioProducto,
         categoria
      }
-
      console.log(producto);
     //  enviar el request o solicitud POST
 
      try{
         //  codigo normal
-        const respuesta = await fetch('http://localhost:3004/cafeteria')
+        const configuracion= {
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json"
+          },
+          body: JSON.stringify(producto)
+        }
+
+        const respuesta = await fetch(URL,configuracion)
         console.log(respuesta)
+        if(respuesta.status === 201){
+          // mostrar cartel de que se agrego el producto
+          Swal.fire(
+            'Producto creado',
+            'El producto ingresado se agrego correctamente',
+            'success'
+          )
+        }
 
      }catch(error){
         console.log(error);
