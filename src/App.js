@@ -6,8 +6,31 @@ import AgregarProducto from "./components/AgregarProducto";
 import Navegacion from "./components/common/Navegacion";
 import Footer from "./components/common/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState, useEffect} from 'react';
 
 function App() {
+  const [productos, setProductos] = useState([]);
+  const URL = process.env.REACT_APP_API_URL
+
+  useEffect(()=>{
+    // llamar a la api
+    consultarAPI();
+  }, []);
+
+  const consultarAPI = async() =>{
+    try{
+      const respuesta = await fetch(URL);
+      const informacion = await respuesta.json();
+      if(respuesta.status === 200){
+        // console.log(informacion);
+        setProductos(informacion)
+      }
+    }catch(error){
+      console.log(error);
+      // mostrar un cartel al usuario que lo intente en unos minutos
+    }
+  }
+
   return (
     <Router>
       <Navegacion></Navegacion>
@@ -16,7 +39,7 @@ function App() {
           <Inicio></Inicio>
         </Route>
         <Route exact path="/productos">
-          <ListarProductos></ListarProductos>
+          <ListarProductos productos={productos}></ListarProductos>
         </Route>
         <Route exact path="/productos/nuevo">
           <AgregarProducto></AgregarProducto>
