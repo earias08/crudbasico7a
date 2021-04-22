@@ -7,12 +7,6 @@
       "id": 1
     },
     {
-      "nombreProducto": "medialuna x unidad",
-      "precioProducto": 40,
-      "categoria": "dulce",
-      "id": 1
-    },
-    {
       "nombreProducto": "té",
       "precioProducto": 45,
       "categoria": "bebidaCaliente",
@@ -29,6 +23,24 @@
       "precioProducto": 65,
       "categoria": "dulce",
       "id": 4
+    },
+    {
+      "nombreProducto": "jugo de naranja",
+      "precioProducto": 200,
+      "categoria": "bebidaFria",
+      "id": 5
+    },
+    {
+      "nombreProducto": "Licuado de durazno",
+      "precioProducto": 250,
+      "categoria": "bebidaFria",
+      "id": 6
+    },
+    {
+      "nombreProducto": "Brownie",
+      "precioProducto": 100,
+      "categoria": "dulce",
+      "id": 7
     }
   ]
 }
