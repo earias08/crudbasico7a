@@ -41,6 +41,12 @@
       "precioProducto": 100,
       "categoria": "dulce",
       "id": 7
+    },
+    {
+      "nombreProducto": "ddfgdfg",
+      "precioProducto": 435,
+      "categoria": "dulce",
+      "id": 8
     }
   ]
 }
