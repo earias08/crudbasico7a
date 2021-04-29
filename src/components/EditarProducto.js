@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import Swal from "sweetalert2";
-import {useParams} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 const EditarProducto = () => {
-    // const id = useParams().id;
-    const {id} = useParams();
-    console.log(id);
-    
+  // const id = useParams().id;
+  const { id } = useParams();
+  const [producto, setProducto] = useState({});
+
+  useEffect(() => {
+    consultarProducto();
+  }, []);
+
+  const consultarProducto = async() => {
+    try {
+      const URL = process.env.REACT_APP_API_URL + "/" + id;
+      const respuesta =await fetch(URL);
+      console.log(respuesta);
+      if(respuesta.status === 200){
+        const resp = await respuesta.json();
+        setProducto(resp);
+      }
+    } catch (error) {
+      console.log(error);
+      // mostrar un cartel al usuario de que ocurrio un error
+    }
+  };
 
   const cambioCategoria = (e) => {
     // setCategoria(e.target.value);
