@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
@@ -6,7 +6,12 @@ import { useParams } from "react-router-dom";
 const EditarProducto = () => {
   // const id = useParams().id;
   const { id } = useParams();
+  // variables useRef
+  const nombreProductoRef = useRef('');
+  const precioProductoRef = useRef(0);
+  // creo los state
   const [producto, setProducto] = useState({});
+  const [categoria, setCategoria] = useState('');
 
   useEffect(() => {
     consultarProducto();
@@ -28,7 +33,7 @@ const EditarProducto = () => {
   };
 
   const cambioCategoria = (e) => {
-    // setCategoria(e.target.value);
+    setCategoria(e.target.value);
   };
 
   const handleSubmit = () => {};
@@ -39,11 +44,11 @@ const EditarProducto = () => {
         <h1 className="text-center my-5">Editar producto</h1>
         <Form.Group>
           <Form.Label>Nombre de producto*</Form.Label>
-          <Form.Control type="text" placeholder="Té"></Form.Control>
+          <Form.Control type="text" placeholder="Té" ref={nombreProductoRef} defaultValue={producto.nombreProducto}></Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label>Precio*</Form.Label>
-          <Form.Control type="number" placeholder="0"></Form.Control>
+          <Form.Control type="number" placeholder="0" ref={precioProductoRef} defaultValue={producto.precioProducto}></Form.Control>
         </Form.Group>
         <h3 className="text-center my-4">Categoria</h3>
         <div className="text-center">
@@ -54,6 +59,7 @@ const EditarProducto = () => {
             label="Bebida caliente"
             value="bebidaCaliente"
             onChange={cambioCategoria}
+            defaultChecked={producto.categoria && producto.categoria === 'bebidaCaliente'}
           ></Form.Check>
           <Form.Check
             type="radio"
@@ -62,6 +68,7 @@ const EditarProducto = () => {
             label="Bebida Fria"
             value="bebidaFria"
             onChange={cambioCategoria}
+            defaultChecked={producto.categoria && producto.categoria === 'bebidaFria'}
           ></Form.Check>
           <Form.Check
             type="radio"
@@ -70,6 +77,7 @@ const EditarProducto = () => {
             label="Dulce"
             value="dulce"
             onChange={cambioCategoria}
+            defaultChecked={producto.categoria && producto.categoria === 'dulce'}
           ></Form.Check>
           <Form.Check
             type="radio"
@@ -78,6 +86,7 @@ const EditarProducto = () => {
             label="Salado"
             value="salado"
             onChange={cambioCategoria}
+            defaultChecked={producto.categoria && producto.categoria === 'salado'}
           ></Form.Check>
         </div>
         <Button variant="danger" type="submit" className="w-100 my-5">
