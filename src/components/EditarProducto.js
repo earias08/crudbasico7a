@@ -1,8 +1,14 @@
 import React from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import Swal from "sweetalert2";
+import {useParams} from 'react-router-dom';
 
 const EditarProducto = () => {
+    // const id = useParams().id;
+    const {id} = useParams();
+    console.log(id);
+    
+
   const cambioCategoria = (e) => {
     // setCategoria(e.target.value);
   };
