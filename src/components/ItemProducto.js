@@ -2,6 +2,8 @@ import React from 'react';
 import {ListGroup, Button, Badge} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import {Link} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPencilAlt, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 
 const ItemProducto = (props) => {
 
@@ -53,8 +55,12 @@ const ItemProducto = (props) => {
         <ListGroup.Item className='d-flex justify-content-between'>
             <p>{props.producto.nombreProducto} <Badge variant="success">${props.producto.precioProducto}</Badge></p>
             <div>
-            <Link className='btn btn-warning mr-3 text-light' to={`/productos/editar/${props.producto.id}`}>Editar</Link>
-            <Button variant='danger' onClick={()=> eliminarProducto(props.producto.id)}>Borrar</Button>
+            <Link className='btn btn-warning mr-3 text-light' to={`/productos/editar/${props.producto.id}`}>
+              <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
+            </Link>
+            <Button variant='danger' onClick={()=> eliminarProducto(props.producto.id)}>
+              <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
+            </Button>
             </div>
         </ListGroup.Item>
     );

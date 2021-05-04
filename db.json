@@ -7,8 +7,8 @@
       "id": 1
     },
     {
-      "nombreProducto": "té",
-      "precioProducto": 45,
+      "nombreProducto": "té de manzanilla",
+      "precioProducto": "40",
       "categoria": "bebidaCaliente",
       "id": 2
     },
@@ -26,13 +26,13 @@
     },
     {
       "nombreProducto": "jugo de naranja",
-      "precioProducto": 200,
+      "precioProducto": "150",
       "categoria": "bebidaFria",
       "id": 5
     },
     {
-      "nombreProducto": "Brownie",
-      "precioProducto": 100,
+      "nombreProducto": "Brownie con galletitas oreo",
+      "precioProducto": "155",
       "categoria": "dulce",
       "id": 7
     }
