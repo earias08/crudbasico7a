@@ -55,10 +55,10 @@ const ItemProducto = (props) => {
         <ListGroup.Item className='d-flex justify-content-between'>
             <p>{props.producto.nombreProducto} <Badge variant="success">${props.producto.precioProducto}</Badge></p>
             <div>
-            <Link className='btn btn-warning mr-3 text-light' to={`/productos/editar/${props.producto.id}`}>
+            <Link className='btn btn-warning mr-3 text-light' to={`/productos/editar/${props.producto._id}`}>
               <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
             </Link>
-            <Button variant='danger' onClick={()=> eliminarProducto(props.producto.id)}>
+            <Button variant='danger' onClick={()=> eliminarProducto(props.producto._id)}>
               <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
             </Button>
             </div>
